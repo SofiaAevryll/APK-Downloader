@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AppNiYao · APK download</title>
-  <!-- Font & Icons (clean, classy) -->
+  <!-- Font & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    /* ===== SEPARATE STYLES ===== */
+    /* ===== STYLES ===== */
     * {
       margin: 0;
       padding: 0;
@@ -29,9 +29,8 @@
       line-height: 1.5;
     }
 
-    /* main card – soft glass / elevated */
     .card {
-      max-width: 680px;
+      max-width: 720px;
       width: 100%;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(6px);
@@ -51,7 +50,6 @@
       }
     }
 
-    /* header with icon + title */
     .app-header {
       display: flex;
       align-items: center;
@@ -102,7 +100,6 @@
       color: #7e8b9e;
     }
 
-    /* description */
     .description {
       margin: 1.8rem 0 2.2rem 0;
       font-weight: 400;
@@ -123,7 +120,6 @@
       opacity: 0.7;
     }
 
-    /* download box – modern & clean */
     .download-area {
       background: #f0f4fe;
       border-radius: 28px;
@@ -136,6 +132,11 @@
       border: 1px solid rgba(255, 255, 255, 0.7);
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.02), 0 6px 12px -8px rgba(0,20,40,0.08);
       transition: background 0.2s;
+      margin-bottom: 1.2rem;
+    }
+
+    .download-area:last-of-type {
+      margin-bottom: 0;
     }
 
     .download-info {
@@ -217,7 +218,6 @@
       box-shadow: 0 6px 12px -6px rgba(0,0,0,0.3);
     }
 
-    /* extra details / features */
     .meta-footer {
       margin-top: 2.5rem;
       display: flex;
@@ -270,7 +270,6 @@
       opacity: 0.6;
     }
 
-    /* small responsive */
     @media (max-width: 550px) {
       .download-area {
         flex-direction: column;
@@ -299,7 +298,6 @@
       }
     }
 
-    /* subtle animation */
     .card {
       animation: fadeUp 0.7s ease forwards;
     }
@@ -308,7 +306,6 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* custom scroll (optional) */
     ::-webkit-scrollbar {
       width: 6px;
       background: #eef2f7;
@@ -321,32 +318,30 @@
 </head>
 <body>
   <div class="card">
-    <!-- header -->
     <div class="app-header">
       <div class="app-icon">
         <i class="fas fa-cube"></i>
       </div>
       <div class="app-title-group">
-        <span class="app-name">AppNiYao</span>   <!-- updated name -->
+        <span class="app-name">AppNiYao</span>
         <span class="app-version">
           <i class="fas fa-circle"></i> v2.4.1 · build 241
         </span>
       </div>
     </div>
 
-    <!-- description -->
     <div class="description">
       <i class="fas fa-arrow-right-to-bracket"></i>
-      Fresh APK release — optimized, stable, and ready to install.
-      Download the latest version of AppNiYao directly.
+      Fresh APK releases — optimized, stable, and ready to install.
+      Download the latest versions of AppNiYao apps directly.
     </div>
 
-    <!-- main download block -->
+    <!-- Attendance Monitoring APK -->
     <div class="download-area">
       <div class="download-info">
         <i class="fas fa-file-zipper"></i>
         <div class="file-details">
-          <span class="file-name">appniyao-2.4.1.apk</span>   <!-- updated file name -->
+          <span class="file-name">AttendanceMonitoring.apk</span>
           <span class="file-meta">
             <i class="fas fa-database"></i> 24.6 MB
             <i class="fas fa-circle" style="font-size: 0.3rem; opacity: 0.5;"></i>
@@ -354,12 +349,29 @@
           </span>
         </div>
       </div>
-      <button class="btn-download" id="downloadBtn">
+      <button class="btn-download" data-file="AttendanceMonitoring.apk" data-label="AttendanceMonitoring">
         <i class="fas fa-download"></i> Download APK
       </button>
     </div>
 
-    <!-- meta / badges + footer -->
+    <!-- Torque Registry APK -->
+    <div class="download-area">
+      <div class="download-info">
+        <i class="fas fa-file-zipper"></i>
+        <div class="file-details">
+          <span class="file-name">TorqueRegistry.apk</span>
+          <span class="file-meta">
+            <i class="fas fa-database"></i> 18.2 MB
+            <i class="fas fa-circle" style="font-size: 0.3rem; opacity: 0.5;"></i>
+            <i class="fas fa-shield-alt"></i> verified
+          </span>
+        </div>
+      </div>
+      <button class="btn-download" data-file="TorqueRegistry.apk" data-label="TorqueRegistry">
+        <i class="fas fa-download"></i> Download APK
+      </button>
+    </div>
+
     <div class="meta-footer">
       <div class="badge-group">
         <span class="badge"><i class="fas fa-check-circle"></i> Safe</span>
@@ -367,56 +379,65 @@
         <span class="badge"><i class="fas fa-calendar-alt"></i> Jun 2026</span>
       </div>
       <div class="footnote">
-        <i class="fas fa-lock"></i>  secure download ·  APK only
+        <i class="fas fa-lock"></i> secure download · APK only
       </div>
     </div>
 
-    <!-- footer note -->
     <div style="margin-top: 1.8rem; text-align: right; font-size: 0.7rem; color: #8b9bb2; letter-spacing: 0.2px; border-top: 1px dashed rgba(0,0,0,0.04); padding-top: 1.2rem; opacity: 0.7;">
-      <i class="fas fa-code"></i> ready for your new app · just replace the file
+      <i class="fas fa-code"></i> multiple APKs available · choose your app
     </div>
   </div>
 
   <script>
     (function() {
-      const downloadBtn = document.getElementById('downloadBtn');
+      // Get all download buttons
+      const downloadButtons = document.querySelectorAll('.btn-download');
 
-      function handleDownload() {
-        // feedback: preparing
-        const originalContent = downloadBtn.innerHTML;
-        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Preparing…';
-        downloadBtn.style.pointerEvents = 'none';
-        downloadBtn.style.opacity = '0.8';
+      function handleDownload(event) {
+        const button = event.currentTarget;
+        const fileName = button.getAttribute('data-file');
+        const fileLabel = button.getAttribute('data-label');
+        
+        // Save original content
+        const originalContent = button.innerHTML;
+        
+        // Show preparing state
+        button.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Preparing…';
+        button.style.pointerEvents = 'none';
+        button.style.opacity = '0.8';
 
         setTimeout(() => {
-          // restore button
-          downloadBtn.innerHTML = originalContent;
-          downloadBtn.style.pointerEvents = 'auto';
-          downloadBtn.style.opacity = '1';
+          // Restore button
+          button.innerHTML = originalContent;
+          button.style.pointerEvents = 'auto';
+          button.style.opacity = '1';
 
-          // trigger APK download (simulated with base64 dummy)
+          // Create download link for the specific APK file
           const link = document.createElement('a');
-          link.href = 'data:application/vnd.android.package-archive;base64,UEsDBBQAAAAIAONRd1gAAAAAAAAAAAAAAAAJABwAYXBwbm92YS5hcGtVWAwACwAAAAAAAAAAAAAAUEsBAhQAFAAAAAgA41F3WAAAAAAAAAAAAAAAAAkAGAAAAAAAAAAQsAAAAABhcHBub3ZhLmFwa1VYCAAAAAsAAAAAAAAAAAAAUEsFBgAAAAABAAEAPAAAADYAAAAAAA==';
-          link.download = 'appniyao-2.4.1.apk';   // updated filename
+          link.href = `./apkfiles/${fileName}`;
+          link.download = `AppNiYao-${fileLabel}.apk`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
 
-          // success feedback
-          const btn = document.getElementById('downloadBtn');
-          const oldHtml = btn.innerHTML;
-          btn.innerHTML = '<i class="fas fa-check-circle"></i> Download started';
-          btn.style.background = '#1e4a3b';
-          btn.style.boxShadow = '0 6px 16px -6px rgba(20,70,50,0.4)';
+          // Success feedback
+          const oldHtml = button.innerHTML;
+          button.innerHTML = '<i class="fas fa-check-circle"></i> Download started';
+          button.style.background = '#1e4a3b';
+          button.style.boxShadow = '0 6px 16px -6px rgba(20,70,50,0.4)';
+          
           setTimeout(() => {
-            btn.innerHTML = oldHtml;
-            btn.style.background = '#0b1a2f';
-            btn.style.boxShadow = '0 12px 18px -8px rgba(11, 26, 47, 0.25)';
+            button.innerHTML = oldHtml;
+            button.style.background = '#0b1a2f';
+            button.style.boxShadow = '0 12px 18px -8px rgba(11, 26, 47, 0.25)';
           }, 2200);
         }, 900);
       }
 
-      downloadBtn.addEventListener('click', handleDownload);
+      // Add click event to each button
+      downloadButtons.forEach(button => {
+        button.addEventListener('click', handleDownload);
+      });
     })();
   </script>
 </body>
