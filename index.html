@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppNiYao · APK download</title>
+  <!-- Font & Icons (clean, classy) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ===== SEPARATE STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8fafc;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      color: #0b1a2f;
+      line-height: 1.5;
+    }
+
+    /* main card – soft glass / elevated */
+    .card {
+      max-width: 680px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 42px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 30px 60px -20px rgba(0, 20, 40, 0.25),
+                  0 8px 24px -6px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: box-shadow 0.25s ease;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 2rem 1.5rem;
+        border-radius: 32px;
+      }
+    }
+
+    /* header with icon + title */
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(145deg, #1e2b3c, #0b1a2f);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 12px 18px -8px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .app-title-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-name {
+      font-weight: 700;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #0b1a2f;
+    }
+
+    .app-version {
+      font-weight: 400;
+      font-size: 0.95rem;
+      color: #5f6c80;
+      letter-spacing: 0.01em;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .app-version i {
+      font-size: 0.7rem;
+      color: #7e8b9e;
+    }
+
+    /* description */
+    .description {
+      margin: 1.8rem 0 2.2rem 0;
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: #1e2f44;
+      padding-right: 0.5rem;
+      background: rgba(230, 240, 255, 0.3);
+      padding: 1rem 1.4rem;
+      border-radius: 24px;
+      border-left: 4px solid #2e4b6e;
+      backdrop-filter: blur(2px);
+      line-height: 1.6;
+    }
+
+    .description i {
+      margin-right: 10px;
+      color: #2e4b6e;
+      opacity: 0.7;
+    }
+
+    /* download box – modern & clean */
+    .download-area {
+      background: #f0f4fe;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.02), 0 6px 12px -8px rgba(0,20,40,0.08);
+      transition: background 0.2s;
+    }
+
+    .download-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .download-info i {
+      font-size: 2rem;
+      color: #1a304a;
+      background: white;
+      padding: 10px;
+      border-radius: 18px;
+      box-shadow: 0 6px 12px -6px rgba(0,0,0,0.05);
+    }
+
+    .file-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .file-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0b1a2f;
+      letter-spacing: -0.01em;
+    }
+
+    .file-meta {
+      font-size: 0.85rem;
+      color: #4a5c72;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .file-meta i {
+      font-size: 0.65rem;
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+      color: #5b6f88;
+    }
+
+    .btn-download {
+      background: #0b1a2f;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 12px 18px -8px rgba(11, 26, 47, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .btn-download i {
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+    }
+
+    .btn-download:hover {
+      background: #1c314b;
+      transform: scale(1.02) translateY(-2px);
+      box-shadow: 0 18px 28px -12px rgba(11, 26, 47, 0.4);
+    }
+
+    .btn-download:active {
+      transform: scale(0.97);
+      box-shadow: 0 6px 12px -6px rgba(0,0,0,0.3);
+    }
+
+    /* extra details / features */
+    .meta-footer {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .badge-group {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 0.3rem 1rem 0.3rem 0.8rem;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1a304a;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .badge i {
+      font-size: 0.75rem;
+      color: #2e4b6e;
+    }
+
+    .footnote {
+      font-size: 0.8rem;
+      color: #4f647c;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.2px;
+    }
+
+    .footnote i {
+      color: #2e4b6e;
+      opacity: 0.6;
+    }
+
+    /* small responsive */
+    @media (max-width: 550px) {
+      .download-area {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.5rem;
+      }
+      .btn-download {
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        width: 100%;
+      }
+      .download-info {
+        justify-content: center;
+      }
+      .meta-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .app-name {
+        font-size: 1.6rem;
+      }
+      .description {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.2rem;
+      }
+    }
+
+    /* subtle animation */
+    .card {
+      animation: fadeUp 0.7s ease forwards;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* custom scroll (optional) */
+    ::-webkit-scrollbar {
+      width: 6px;
+      background: #eef2f7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #bac8db;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- header -->
+    <div class="app-header">
+      <div class="app-icon">
+        <i class="fas fa-cube"></i>
+      </div>
+      <div class="app-title-group">
+        <span class="app-name">AppNiYao</span>   <!-- updated name -->
+        <span class="app-version">
+          <i class="fas fa-circle"></i> v2.4.1 · build 241
+        </span>
+      </div>
+    </div>
+
+    <!-- description -->
+    <div class="description">
+      <i class="fas fa-arrow-right-to-bracket"></i>
+      Fresh APK release — optimized, stable, and ready to install.
+      Download the latest version of AppNiYao directly.
+    </div>
+
+    <!-- main download block -->
+    <div class="download-area">
+      <div class="download-info">
+        <i class="fas fa-file-zipper"></i>
+        <div class="file-details">
+          <span class="file-name">appniyao-2.4.1.apk</span>   <!-- updated file name -->
+          <span class="file-meta">
+            <i class="fas fa-database"></i> 24.6 MB
+            <i class="fas fa-circle" style="font-size: 0.3rem; opacity: 0.5;"></i>
+            <i class="fas fa-shield-alt"></i> verified
+          </span>
+        </div>
+      </div>
+      <button class="btn-download" id="downloadBtn">
+        <i class="fas fa-download"></i> Download APK
+      </button>
+    </div>
+
+    <!-- meta / badges + footer -->
+    <div class="meta-footer">
+      <div class="badge-group">
+        <span class="badge"><i class="fas fa-check-circle"></i> Safe</span>
+        <span class="badge"><i class="fas fa-rocket"></i> v2.4.1</span>
+        <span class="badge"><i class="fas fa-calendar-alt"></i> Jun 2026</span>
+      </div>
+      <div class="footnote">
+        <i class="fas fa-lock"></i>  secure download ·  APK only
+      </div>
+    </div>
+
+    <!-- footer note -->
+    <div style="margin-top: 1.8rem; text-align: right; font-size: 0.7rem; color: #8b9bb2; letter-spacing: 0.2px; border-top: 1px dashed rgba(0,0,0,0.04); padding-top: 1.2rem; opacity: 0.7;">
+      <i class="fas fa-code"></i> ready for your new app · just replace the file
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const downloadBtn = document.getElementById('downloadBtn');
+
+      function handleDownload() {
+        // feedback: preparing
+        const originalContent = downloadBtn.innerHTML;
+        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Preparing…';
+        downloadBtn.style.pointerEvents = 'none';
+        downloadBtn.style.opacity = '0.8';
+
+        setTimeout(() => {
+          // restore button
+          downloadBtn.innerHTML = originalContent;
+          downloadBtn.style.pointerEvents = 'auto';
+          downloadBtn.style.opacity = '1';
+
+          // trigger APK download (simulated with base64 dummy)
+          const link = document.createElement('a');
+          link.href = 'data:application/vnd.android.package-archive;base64,UEsDBBQAAAAIAONRd1gAAAAAAAAAAAAAAAAJABwAYXBwbm92YS5hcGtVWAwACwAAAAAAAAAAAAAAUEsBAhQAFAAAAAgA41F3WAAAAAAAAAAAAAAAAAkAGAAAAAAAAAAQsAAAAABhcHBub3ZhLmFwa1VYCAAAAAsAAAAAAAAAAAAAUEsFBgAAAAABAAEAPAAAADYAAAAAAA==';
+          link.download = 'appniyao-2.4.1.apk';   // updated filename
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          // success feedback
+          const btn = document.getElementById('downloadBtn');
+          const oldHtml = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-check-circle"></i> Download started';
+          btn.style.background = '#1e4a3b';
+          btn.style.boxShadow = '0 6px 16px -6px rgba(20,70,50,0.4)';
+          setTimeout(() => {
+            btn.innerHTML = oldHtml;
+            btn.style.background = '#0b1a2f';
+            btn.style.boxShadow = '0 12px 18px -8px rgba(11, 26, 47, 0.25)';
+          }, 2200);
+        }, 900);
+      }
+
+      downloadBtn.addEventListener('click', handleDownload);
+    })();
+  </script>
+</body>
+</html>
