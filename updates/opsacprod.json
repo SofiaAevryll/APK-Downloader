@@ -2,7 +2,7 @@
   "versionCode": 6,
   "versionName": "1.0.6",
   "apkUrl": "https://apk-downloader-two.vercel.app/apkfiles/opsacprod-1.0.6.apk",
-  "sha256": "301b450b1ecc3648a5540c2facfad71775924859",
+  "sha256": "9c9a82c30af04caf7456ad7ba9b4b06621f365c31af7c2545cb6398e98d279cb",
   "notes": "Bug fixes and improvements.",
   "mandatory": false
 }
