@@ -1,8 +1,8 @@
 {
   "versionCode": 7,
   "versionName": "1.0.7",
-  "apkUrl": "https://apk-downloader-two.vercel.app/apkfiles/opsacprod-1.0.6.apk",
+  "apkUrl": "https://apk-downloader-two.vercel.app/apkfiles/opsacprod-1.0.7.apk",
   "sha256": "14a9fddf88bb60cae5903e2ea4619cf06cf0877cf82ee0202d0d16dcbb3179a8",
-  "notes": "Bug fixes and improvements and fixing camera permession.",
+  "notes": "Bug fixes and improvements and fixing camera permission.",
   "mandatory": false
 }
