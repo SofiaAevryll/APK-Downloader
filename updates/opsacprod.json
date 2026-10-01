@@ -1,8 +1,8 @@
 {
-  "versionCode": 6,
-  "versionName": "1.0.6",
+  "versionCode": 7,
+  "versionName": "1.0.7",
   "apkUrl": "https://apk-downloader-two.vercel.app/apkfiles/opsacprod-1.0.6.apk",
-  "sha256": "9c9a82c30af04caf7456ad7ba9b4b06621f365c31af7c2545cb6398e98d279cb",
-  "notes": "Bug fixes and improvements.",
+  "sha256": "14a9fddf88bb60cae5903e2ea4619cf06cf0877cf82ee0202d0d16dcbb3179a8",
+  "notes": "Bug fixes and improvements and fixing camera permession.",
   "mandatory": false
 }
